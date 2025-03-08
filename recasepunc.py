@@ -745,10 +745,10 @@ if __name__ == '__main__':
     parser.add_argument("--device", help="computation device (cuda, cpu)", default=default_config.device, type=str)
     parser.add_argument("--debug", help="whether to output more debug info", default=default_config.debug, type=bool)
     parser.add_argument("--updates", help="number of training updates to perform", default=default_config.updates,
-                        type=bool)
-    parser.add_argument("--period", help="validation period in updates", default=default_config.period, type=bool)
-    parser.add_argument("--lr", help="learning rate", default=default_config.lr, type=bool)
-    parser.add_argument("--dab-rate", help="drop at boundaries rate", default=default_config.dab_rate, type=bool)
+                        type=int)
+    parser.add_argument("--period", help="validation period in updates", default=default_config.period, type=int)
+    parser.add_argument("--lr", help="learning rate", default=default_config.lr, type=float)
+    parser.add_argument("--dab-rate", help="drop at boundaries rate", default=default_config.dab_rate, type=float)
     config = Config(**parser.parse_args().__dict__)
 
     main(config, config.action, config.action_args)
